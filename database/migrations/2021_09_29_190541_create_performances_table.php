@@ -14,7 +14,7 @@ class CreatePerformancesTable extends Migration
     public function up()
     {
         Schema::create('performances', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('course_id')->unsigned()->index();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->integer('trainer')->unsigned()->index();

@@ -3,16 +3,17 @@
 namespace Database\Factories;
 
 use App\Models\Course;
+use App\Models\Department;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CourseFactory extends Factory
+class DepartmentFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Course::class;
+    protected $model = Department::class;
 
     /**
      * Define the model's default state.
@@ -23,7 +24,6 @@ class CourseFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'description' => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
         ];
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Customer;
 
+use App\Models\EmployeePerformance;
 use Illuminate\Database\Seeder;
 
-class CustomerSeeder extends Seeder
+class EmployeePerformanceSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class CustomerSeeder extends Seeder
      */
     public function run()
     {
-        //
+        EmployeePerformance::factory()->count(100)->create();
     }
 }

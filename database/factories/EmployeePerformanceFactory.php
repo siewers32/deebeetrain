@@ -3,16 +3,19 @@
 namespace Database\Factories;
 
 use App\Models\Course;
+use App\Models\Department;
+use App\Models\EmployeePerformance;
+use App\Models\Performance;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CourseFactory extends Factory
+class EmployeePerformanceFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Course::class;
+    protected $model = EmployeePerformance::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +25,9 @@ class CourseFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word(),
-            'description' => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
+            'employee_id' => random_int(1,99),
+            'performance_id' => random_int(1,99),
+            'evaluation' => random_int(1,10),
         ];
     }
 }

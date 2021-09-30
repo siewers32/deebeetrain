@@ -22,7 +22,11 @@ class EmployeeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'first_name' => $this->faker->firstName(),
+            'prefix' => $this->faker->randomElement(['van', 'van der', 'op de', 'van den', '', '', '', '']),
+            'last_name' => $this->faker->lastName(),
+            'email'=> $this->faker->email(),
+            'department_id'=> random_int(1,99)
         ];
     }
 }
