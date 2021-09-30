@@ -15,8 +15,10 @@ class CreatePerformancesTable extends Migration
     {
         Schema::create('performances', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('course_id');
-            $table->bigInteger('trainer');
+            $table->integer('course_id')->unsigned()->index();
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->integer('trainer')->unsigned()->index();
+            $table->foreign('trainer')->references('id')->on('employees')->onDelete('cascade');
             $table->date('performance_date');
             $table->time('start');
             $table->time('end');

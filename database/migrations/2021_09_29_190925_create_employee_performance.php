@@ -14,9 +14,11 @@ class CreateEmployeePerformance extends Migration
     public function up()
     {
         Schema::create('employee_performance', function (Blueprint $table) {
-            $table->bigInteger('employee_id');
-            $table->bigInteger('performance_id');
-            $table->unique(['performance_id', 'employee_id']);
+            $table->integer('employee_id')->unsigned()->index();
+            $table->integer('performance_id')->unsigned()->index();
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+            $table->foreign('performance_id')->references('id')->on('performances')->onDelete('cascade');
+            $table->primary(['performance_id', 'employee_id']);
             $table->integer('evaluation');
             $table->timestamps();
         });
@@ -32,3 +34,4 @@ class CreateEmployeePerformance extends Migration
         Schema::dropIfExists('employee_performance');
     }
 }
+
