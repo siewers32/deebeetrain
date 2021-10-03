@@ -25,7 +25,7 @@ class PerformanceFactory extends Factory
     {
         return [
             'course_id' => random_int(1,99),
-            'trainer' => random_int(1,99),
+            'trainer' => 1,//random_int(1,99),
             'performance_date' => $this->faker->date(now()),
             'start' => $this->faker->time('H:i:s', '09:00:00'),
             'end' => $this->faker->time('H:i:s', '22:00:00'),

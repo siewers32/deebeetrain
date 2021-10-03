@@ -26,7 +26,6 @@ class EmployeeFactory extends Factory
             'prefix' => $this->faker->randomElement(['van', 'van der', 'op de', 'van den', '', '', '', '']),
             'last_name' => $this->faker->lastName(),
             'email'=> $this->faker->email(),
-            'department_id'=> random_int(1,99)
         ];
     }
 }

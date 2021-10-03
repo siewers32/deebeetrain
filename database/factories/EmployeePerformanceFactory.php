@@ -24,9 +24,9 @@ class EmployeePerformanceFactory extends Factory
      */
     public function definition()
     {
+
         return [
-            'employee_id' => random_int(1,99),
-            'performance_id' => random_int(1,99),
+            'performance_id' => random_int(1,25),
             'evaluation' => random_int(1,10),
         ];
     }

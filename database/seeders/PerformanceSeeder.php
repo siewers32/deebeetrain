@@ -14,6 +14,8 @@ class PerformanceSeeder extends Seeder
      */
     public function run()
     {
-        Performance::factory()->count(100)->create();
+        Performance::factory()
+            ->count(25)
+            ->create();
     }
 }
