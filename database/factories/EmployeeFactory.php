@@ -22,6 +22,7 @@ class EmployeeFactory extends Factory
     public function definition()
     {
         return [
+            'department_id' => random_int(1,10),
             'first_name' => $this->faker->firstName(),
             'prefix' => $this->faker->randomElement(['van', 'van der', 'op de', 'van den', '', '', '', '']),
             'last_name' => $this->faker->lastName(),

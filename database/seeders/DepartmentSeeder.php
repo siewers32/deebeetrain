@@ -17,7 +17,7 @@ class DepartmentSeeder extends Seeder
     {
         Department::factory()
             ->count(10)
-            ->hasEmployees(10)
+            ->hasEmployees(1)
             ->create();
     }
 }

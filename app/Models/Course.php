@@ -12,5 +12,9 @@ class Course extends Model
         return $this->hasMany(Performance::class);
     }
 
+    public function employees() {
+        return $this->hasManyThrough(Employee::class, Performance::class);
+    }
+
 
 }

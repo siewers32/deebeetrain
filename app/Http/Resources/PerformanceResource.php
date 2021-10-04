@@ -14,6 +14,12 @@ class PerformanceResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'performance_date' => $this->performance_date,
+            'start' => $this->start,
+            'end' => $this->end,
+            'employees' => EmployeeResource::collection($this->employees),
+        ];
     }
 }

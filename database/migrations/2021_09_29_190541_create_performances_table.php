@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreatePerformancesTable extends Migration
@@ -19,7 +20,7 @@ class CreatePerformancesTable extends Migration
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->integer('trainer')->unsigned()->index();
             $table->foreign('trainer')->references('id')->on('employees')->onDelete('cascade');
-            $table->date('performance_date');
+            $table->dateTime('performance_date');
             $table->time('start');
             $table->time('end');
             $table->timestamps();

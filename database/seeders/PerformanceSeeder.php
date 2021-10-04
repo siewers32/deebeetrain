@@ -16,6 +16,7 @@ class PerformanceSeeder extends Seeder
     {
         Performance::factory()
             ->count(25)
+            ->hasEmployees(6)
             ->create();
     }
 }

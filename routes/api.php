@@ -4,8 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\AuthController;
-
-
+use App\Http\Controllers\PerformanceController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,11 +16,13 @@ use App\Http\Controllers\AuthController;
 |
 */
 
+
 Route::get('/', function () {
-    return "{Hello: World}";
+    return "bla";
 });
 
 Route::get('/course/{course}', [CourseController::class, 'show']);
+Route::get('/performance/{performance}', [PerformanceController::class, 'show']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -33,4 +34,3 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     //Protectes routes go here
     Route::post('/logout', [AuthController::class, 'logout']);
 });
-

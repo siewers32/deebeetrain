@@ -26,7 +26,6 @@ class EmployeePerformanceFactory extends Factory
     {
 
         return [
-            'performance_id' => random_int(1,25),
             'evaluation' => random_int(1,10),
         ];
     }

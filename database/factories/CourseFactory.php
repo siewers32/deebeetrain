@@ -22,7 +22,7 @@ class CourseFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word(),
+            'name' => $this->faker->randomElement(["Database ontwerp", "Object oriented PHP", "Python", "Git and Github", "Wordpress"])." part ".random_int(1,10),
             'description' => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
         ];
     }

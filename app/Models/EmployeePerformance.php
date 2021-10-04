@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class EmployeePerformance extends Pivot
 {
+    use HasFactory;
     protected $table = 'employee_performance';
 
-    use HasFactory;
 }

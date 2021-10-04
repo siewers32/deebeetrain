@@ -9,11 +9,11 @@ class Performance extends Model
 {
     use HasFactory;
     public function course() {
-        return $this->belongsTo(Course::class, 'course_id');
+        return $this->belongsTo(Course::class);
     }
 
     public function employees() {
-        return $this->belongsToMany(Performance::class, )->using(EmployeePerformance::class);
+        return $this->belongsToMany(Employee::class, )->using(EmployeePerformance::class);
     }
 
 //    public function trainer() {

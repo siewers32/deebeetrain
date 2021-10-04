@@ -19,7 +19,7 @@ class CreateEmployeePerformance extends Migration
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->foreign('performance_id')->references('id')->on('performances')->onDelete('cascade');
             $table->primary(['performance_id', 'employee_id']);
-            $table->integer('evaluation');
+            $table->integer('evaluation')->default(random_int(1,5));
             $table->timestamps();
         });
     }
