@@ -21,7 +21,9 @@ Route::get('/', function () {
     return "bla";
 });
 
-Route::get('/course/{course}', [CourseController::class, 'show']);
+//Route::get('/course/{course}', [CourseController::class, 'show']);
+Route::get('/course/{col}', [CourseController::class, 'index']);
+Route::get('/course/{col}/{id}', [CourseController::class, 'show']);
 Route::get('/performance/{performance}', [PerformanceController::class, 'show']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
