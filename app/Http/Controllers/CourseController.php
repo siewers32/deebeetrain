@@ -6,6 +6,7 @@ use App\Http\Resources\CourseResource;
 use App\Http\Resources\CourseResourceCollection;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 
 class CourseController extends Controller
@@ -22,10 +23,9 @@ class CourseController extends Controller
     public function index(Request $request, $col) {
         if(in_array($col, ['id', 'description','all'])) {
             if ($col == 'all') { $col = "*"; }
-            return array('data' => DB::table('courses')
-                ->get($col));
+            return response(["data" => DB::table('courses')->get($col)], HTTP_OK);
         } else {
-            return('404');
+            return response(["code"=>"401", "error" => "Resource not available"]);
         }
     }
 
@@ -37,7 +37,10 @@ class CourseController extends Controller
                 ->get($col)
             );
         } else {
-            return('404');
+            return [
+                "error" => "It's not possible to access this resource",
+                "code" => 401
+            ];
         }
     }
 
