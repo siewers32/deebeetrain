@@ -61,74 +61,34 @@ return [
         'enable' => true,
     ],
 
-    // The schemas for query and/or mutation. It expects an array of schemas to provide
-    // both the 'query' fields and the 'mutation' fields.
-    //
-    // You can also provide a middleware that will only apply to the given schema
-    //
-    // Example:
-    //
-    //  'schema' => 'default',
-    //
-    //  'schemas' => [
-    //      'default' => [
-    //          'query' => [
-    //              'users' => App\GraphQL\Query\UsersQuery::class
-    //          ],
-    //          'mutation' => [
-    //
-    //          ]
-    //      ],
-    //      'user' => [
-    //          'query' => [
-    //              'profile' => App\GraphQL\Query\ProfileQuery::class
-    //          ],
-    //          'mutation' => [
-    //
-    //          ],
-    //          'middleware' => ['auth'],
-    //      ],
-    //      'user/me' => [
-    //          'query' => [
-    //              'profile' => App\GraphQL\Query\MyProfileQuery::class
-    //          ],
-    //          'mutation' => [
-    //
-    //          ],
-    //          'middleware' => ['auth'],
-    //      ],
-    //  ]
-    //
+    // ... some code
+
     'schemas' => [
         'default' => [
             'query' => [
-                // ExampleQuery::class,
+                'course' => \App\GraphQL\Queries\CourseQuery::class,
+                'courses' => \App\GraphQL\Queries\CoursesQuery::class,
+                'employee' => \App\GraphQL\Queries\EmployeeQuery::class,
+                'employees' => \App\GraphQL\Queries\EmployeesQuery::class,
             ],
             'mutation' => [
-                // ExampleMutation::class,
-            ],
-            'types' => [
-                // ExampleType::class,
+                'createCourse' => \App\GraphQL\Mutations\CreateCourseMutation::class,
+                'updateCourse' => \App\GraphQL\Mutations\UpdateCourseMutation::class,
+                'deleteCourse' => \App\GraphQL\Mutations\DeleteCourseMutation::class,
+                'createEmployee' => \App\GraphQL\Mutations\CreateEmployeeMutation::class,
+                'updateEmployee' => \App\GraphQL\Mutations\UpdateEmployeeMutation::class,
+                'deleteEmployee' => \App\GraphQL\Mutations\DeleteEmployeeMutation::class,
             ],
             'middleware' => [],
             'method' => ['get', 'post'],
         ],
     ],
 
-    // The types available in the application. You can then access it from the
-    // facade like this: GraphQL::type('user')
-    //
-    // Example:
-    //
-    // 'types' => [
-    //     App\GraphQL\Type\UserType::class
-    // ]
-    //
     'types' => [
-        // ExampleType::class,
-        // ExampleRelationType::class,
-        // \Rebing\GraphQL\Support\UploadType::class,
+        'Course' => \App\GraphQL\Types\CourseType::class,
+        'Employee' => \App\GraphQL\Types\EmployeeType::class
     ],
+
 
     // The types will be loaded on demand. Default is to load all types on each request
     // Can increase performance on schemes with many types
